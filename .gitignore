@@ -1,0 +1,67 @@
+# Created by https://www.toptal.com/developers/gitignore/api/powershell
+# Edit at https://www.toptal.com/developers/gitignore?templates=powershell
+
+### PowerShell ###
+# Exclude packaged modules
+*.zip
+*.gz
+
+# Exclude .NET assemblies from source
+*.dll
+
+# End of https://www.toptal.com/developers/gitignore/api/powershell
+
+# Created Folders from the Skript
+MinecraftLogFilter/
+my_test_area_to_continue_working_on_the_go/MinecraftLogFilter/
+
+#-------------------------------------------------------------------------------
+# My notes and test-folder
+backups_stable_versions_(privat)/
+backups_instable_versions_(privat)/
+backups_stable_tests_(privat)
+test_new_things_(privat)/
+notes_(privat)/
+
+
+# https://docs.github.com/de/get-started/getting-started-with-git/ignoring-files
+# https://www.toptal.com/developers/gitignore
+
+#-------------------------------------------------------------------------------
+# Windows
+
+#-- image file cache
+Thumbs.db
+
+#-- Folder config file
+Desktop.ini
+folder-*.ico
+
+#-- Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+
+#-------------------------------------------------------------------------------
+# Mac
+
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+scintilla/.hgeol
+scintilla/.hgtags
+scintilla/cppcheck.suppress
+scintilla/.hg_archival.txt
+scintilla/.hgignore
+scintilla/bin/__init__.py
+PowerEditor/bin/NppShell64_06.dll
+PowerEditor/bin/NppShell_06.dll
+
+PowerEditor/bin/SourceCodePro-Bold.ttf
+PowerEditor/bin/SourceCodePro-BoldIt.ttf
+PowerEditor/bin/SourceCodePro-It.ttf
+PowerEditor/bin/SourceCodePro-Regular.ttf
+*.zip
+
+#-------------------------------------------------------------------------------
