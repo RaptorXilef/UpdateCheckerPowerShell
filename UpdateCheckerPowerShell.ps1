@@ -109,18 +109,28 @@ function CheckIfUpdateIsAvailable {
                 Write-Host "The installed version: $currentVersion ($currentVersionSurfix) is up to date." -ForegroundColor Green
             
             } elseif (($currentVersion -eq $lastVersion -and $currentVersionSurfixValueAsNumber -lt $lastVersionSurfixValueAsNumber) -or ($currentVersion -lt $lastVersion)) {
-                Write-Host "An update is available!" -ForegroundColor Yellow
-                Write-Host "Installed version: $currentVersion ($currentVersionSurfix), Latest version: $lastVersion ($lastVersionSurfix)"
-                $answer = Read-Host "Would you like to open the download page for the latest version in your browser? (Y/N)"
+                $answerChoose = $false
+                do {
+                    Clear-Host
+                    Write-Host "An update is available!" -ForegroundColor Yellow
+                    Write-Host "Installed version: $currentVersion ($currentVersionSurfix), Latest version: $lastVersion ($lastVersionSurfix)"
+                    $answer = Read-Host "Would you like to open the download page for the latest version in your browser? (Y/N)"
 
-                if ($answer -eq "J" -or $answer -eq "j" -or $answer -eq "Y" -or $answer -eq "y") {
-                    Start-Process $releaseUrl
-                }
-                else {
-                    Write-Host "Open the $releaseUrl page to display the latest update."
-                    Write-Host "You can also deactivate the search for updates in the $configFile."
-                    Read-Host "Press any button to continue ..."
-                }
+                    if ($answer -eq "J" -or $answer -eq "j" -or $answer -eq "Y" -or $answer -eq "y") {
+                        $answerChoose = $true
+                        Start-Process $releaseUrl
+                    } elseif ($answer -eq "N" -or $answer -eq "n") {
+                        $answerChoose = $true
+                        Write-Host ""
+                        Write-Host "Open the $releaseUrl page to display the latest update."
+                        Write-Host "You can also deactivate the search for updates in the $configFile."
+                        Read-Host "Press any button to continue ..."
+                    } else {
+                        Write-Host ""
+                        Write-Host "Invalid selection." -ForegroundColor Red
+                        Start-Sleep -Seconds 1
+                    }
+                } while ($false -eq $answerChoose)
             
             }
         }
